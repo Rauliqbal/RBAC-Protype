@@ -21,6 +21,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -86,7 +87,7 @@ public class PermissionController {
   }
 
   // UPDATE
-  @PostMapping("/permission/{id}")
+  @PatchMapping("/permission/{id}")
   public RestResponse<PermissionResponse> update(@PathVariable("id") @NonNull Long id,
       @Valid @RequestBody PermissionRequest request) {
     Permission permission = permissionService.update(id, request);
@@ -101,6 +102,25 @@ public class PermissionController {
         .data(response)
         .build();
   }
+
+  // @PatchMapping("/permission/{id}")
+  // public RestResponse<PermissionResponse> update(@PathVariable("id") @NonNull Long id,
+  //     @RequestParam("name") String name, @RequestParam("description") String description) {
+  //   PermissionRequest request = new PermissionRequest();
+  //   request.setName(name);
+  //   request.setDescription(description);
+  //   Permission permission = permissionService.update(id, request);
+  //   PermissionResponse response = PermissionResponse.builder()
+  //       .name(permission.getName())
+  //       .description(permission.getDescription())
+  //       .build();
+
+  //   return RestResponse.<PermissionResponse>builder()
+  //       .success(true)
+  //       .message("Update permission success!")
+  //       .data(response)
+  //       .build();
+  // }
 
   // DELETE
   @DeleteMapping("/permission/{id}")

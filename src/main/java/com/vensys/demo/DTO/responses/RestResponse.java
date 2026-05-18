@@ -1,5 +1,7 @@
 package com.vensys.demo.DTO.responses;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.AllArgsConstructor;
@@ -16,5 +18,5 @@ public class RestResponse<T> {
   private boolean success;
   private String message; 
   private T data;
-  private String error;
+  private List<String> errors;
 }

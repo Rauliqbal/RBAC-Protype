@@ -1,5 +1,6 @@
 package com.vensys.demo.exceptions;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
@@ -17,16 +18,16 @@ public class GlobalExceptionHandler {
   public ResponseEntity<RestResponse<Object>> handleValidationException(
       MethodArgumentNotValidException ex) {
 
-    String errors = ex.getBindingResult()
+    List<String> errors = ex.getBindingResult()
         .getFieldErrors()
         .stream()
         .map(error -> error.getDefaultMessage())
-        .collect(Collectors.joining(", "));
+        .toList();
 
     RestResponse<Object> response = RestResponse.builder()
         .success(false)
         .message("Validation failed")
-        .error(errors)
+        .errors(errors)
         .build();
 
     return ResponseEntity

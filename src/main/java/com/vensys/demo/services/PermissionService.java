@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.vensys.demo.DTO.requests.PermissionRequest;
 import com.vensys.demo.entities.Permission;
+import com.vensys.demo.exceptions.NotFoundException;
 import com.vensys.demo.repositories.PermissionRepository;
 
 import jakarta.transaction.Transactional;
@@ -40,7 +41,7 @@ public class PermissionService {
   @Transactional
   public Permission getById(@NonNull Long id) {
     return permissionRepository.findById(id)
-        .orElseThrow(() -> new IllegalArgumentException("Permission with id '" + id + "' not found."));
+        .orElseThrow(() -> new NotFoundException("Permission with id '" + id + "' not found"));
   }
 
   // UPDATE
@@ -61,7 +62,7 @@ public class PermissionService {
   @Transactional
   public void delete(@NonNull Long id) {
     if (!permissionRepository.existsById(id)) {
-      throw new IllegalArgumentException("Permission with id '" + id + "' not found."); 
+      throw new IllegalArgumentException("Permission with id '" + id + "' not found.");
     }
 
     permissionRepository.deleteById(id);

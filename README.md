@@ -106,7 +106,7 @@ news:read
 {
   "name": "ROLE_EDITOR",
   "description": "Editor role",
-  "permissionIds": [1, 2, 3]
+  "permissionsIds": [1, 2, 3]
 }
 ```
 

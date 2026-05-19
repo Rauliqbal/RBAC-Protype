@@ -8,12 +8,13 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/rbac_demo
     username: postgres
-    password: rauliqbal1324
+    password: postgres
+    # password: rauliqbal1324
     
     hikari:
       minimum-idle: 5
       maximum-idle: 50
-      idle-timeout: 30000
+      idle-timeout: 30000 
 
   jpa:
     hibernate:

@@ -1,6 +1,6 @@
 package com.vensys.demo.DTO.responses;
 
-import java.util.Set;
+import java.util.List;
 
 import lombok.Builder;
 import lombok.Data;
@@ -10,5 +10,5 @@ import lombok.Data;
 public class RoleResponse {
   private String name;
   private String description;
-  private Set<PermissionResponse> permissions;
+  private List<PermissionResponse> permissions;
 }

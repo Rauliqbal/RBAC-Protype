@@ -1,7 +1,7 @@
 package com.vensys.demo.controllers;
 
 import java.util.List;
-import java.util.stream.Collectors; 
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
@@ -100,22 +100,24 @@ public class PermissionController {
   }
 
   // @PatchMapping("/permission/{id}")
-  // public RestResponse<PermissionResponse> update(@PathVariable("id") @NonNull Long id,
-  //     @RequestParam("name") String name, @RequestParam("description") String description) {
-  //   PermissionRequest request = new PermissionRequest();
-  //   request.setName(name);
-  //   request.setDescription(description);
-  //   Permission permission = permissionService.update(id, request);
-  //   PermissionResponse response = PermissionResponse.builder()
-  //       .name(permission.getName())
-  //       .description(permission.getDescription())
-  //       .build();
+  // public RestResponse<PermissionResponse> update(@PathVariable("id") @NonNull
+  // Long id,
+  // @RequestParam("name") String name, @RequestParam("description") String
+  // description) {
+  // PermissionRequest request = new PermissionRequest();
+  // request.setName(name);
+  // request.setDescription(description);
+  // Permission permission = permissionService.update(id, request);
+  // PermissionResponse response = PermissionResponse.builder()
+  // .name(permission.getName())
+  // .description(permission.getDescription())
+  // .build();
 
-  //   return RestResponse.<PermissionResponse>builder()
-  //       .success(true)
-  //       .message("Update permission success!")
-  //       .data(response)
-  //       .build();
+  // return RestResponse.<PermissionResponse>builder()
+  // .success(true)
+  // .message("Update permission success!")
+  // .data(response)
+  // .build();
   // }
 
   // DELETE

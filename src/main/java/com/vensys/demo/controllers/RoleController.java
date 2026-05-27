@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vensys.demo.DTO.responses.PermissionResponse;
 import com.vensys.demo.DTO.responses.RestResponse;
 import com.vensys.demo.DTO.responses.RoleResponse;
 import com.vensys.demo.DTO.requests.RoleRequest;
@@ -40,6 +41,10 @@ public class RoleController {
     RoleResponse response = RoleResponse.builder()
         .name(role.getName())
         .description(role.getDescription())
+        .permissions(role.getPermissions().stream()
+            .map(permission -> PermissionResponse.builder().name(permission.getName())
+                .description(permission.getDescription()).build())
+            .collect(Collectors.toList()))
         .build();
     return RestResponse.<RoleResponse>builder()
         .success(true)
@@ -56,6 +61,10 @@ public class RoleController {
         .map(role -> RoleResponse.builder()
             .name(role.getName())
             .description(role.getDescription())
+            .permissions(role.getPermissions().stream()
+                .map(permission -> PermissionResponse.builder().name(permission.getName())
+                    .description(permission.getDescription()).build())
+                .collect(Collectors.toList()))
             .build())
         .collect(Collectors.toList());
 
@@ -73,6 +82,10 @@ public class RoleController {
     RoleResponse response = RoleResponse.builder()
         .name(role.getName())
         .description(role.getDescription())
+        .permissions(role.getPermissions().stream()
+            .map(permission -> PermissionResponse.builder().name(permission.getName())
+                .description(permission.getDescription()).build())
+            .collect(Collectors.toList()))
         .build();
 
     return RestResponse.<RoleResponse>builder()
@@ -89,6 +102,10 @@ public class RoleController {
     RoleResponse response = RoleResponse.builder()
         .name(role.getName())
         .description(role.getDescription())
+        .permissions(role.getPermissions().stream()
+            .map(permission -> PermissionResponse.builder().name(permission.getName())
+                .description(permission.getDescription()).build())
+            .collect(Collectors.toList()))
         .build();
 
     return RestResponse.<RoleResponse>builder()
